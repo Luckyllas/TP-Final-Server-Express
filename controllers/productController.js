@@ -10,7 +10,7 @@ const getAllProducts = async (req, res) => {
 }
 
 const getProductsById = async (req, res) => {
-    const id = Number(req.params.id);
+    const id = req.params.id;
     const product = await Product.findById(id);
 
     if(product){
