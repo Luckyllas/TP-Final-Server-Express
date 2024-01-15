@@ -1,4 +1,4 @@
-const Product = require('../models/Products');
+const Product = require('../models/Product');
 
 const getAllProducts = async (req, res) => {
     try{
@@ -9,7 +9,7 @@ const getAllProducts = async (req, res) => {
     }
 }
 
-const getProductsById = async (req, res) => {
+const getProductById = async (req, res) => {
     const id = req.params.id;
     const product = await Product.findById(id);
 
@@ -49,4 +49,4 @@ const deleteProduct = async (req, res) =>{
     }
 }
 
-module.exports = {getAllProducts, getProductsById, createProduct, updateProduct, deleteProduct};
+module.exports = {getAllProducts, getProductById, createProduct, updateProduct, deleteProduct};

@@ -4,10 +4,11 @@ const {validate} = require("../middleware/validate");
 const productController = require('../controllers/productController');
 const {nameProduct, description, priceArs} = require('../utils/validations');
 const jwtValidate = require("../middleware/jwtValidate");
+const validateProduct = require("../middleware/validateProductId");
 
 
-router.get('/',jwtValidate, productController.getAllProducts);
-router.get('/:id', productController.getProductsById);
+router.get('/', jwtValidate, productController.getAllProducts);
+router.get('/:id', validateProduct, productController.getProductById);
 
 router.post('/', nameProduct, description, priceArs, validate, productController.createProduct);
 
